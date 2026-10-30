@@ -25,7 +25,7 @@ and this project adheres to
   embedded terminal.
 - Nix flake with `narf`, `narf-tui` and `default` packages and an overlay for
   `x86_64-linux` and `aarch64-linux`; `narf` and `narf-tui` bring `nh` and
-  `git` on their `PATH`, with `nix` and `nixos-rebuild` as a fallback behind
-  the system's versions.
+  `git` on their `PATH`; `nix` and `nixos-rebuild` come from the NixOS
+  system.
 
 [Unreleased]: https://github.com/farbzen/narf.nix/commits/main

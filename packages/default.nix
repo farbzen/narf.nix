@@ -34,9 +34,7 @@
 
       postInstall = ''
         for program in $out/bin/narf $out/bin/narf-tui; do
-          wrapProgram "$program" \
-            --prefix PATH : ${lib.makeBinPath [pkgs.git pkgs.nh]} \
-            --suffix PATH : ${lib.makeBinPath [pkgs.nix pkgs.nixos-rebuild]}
+          wrapProgram "$program" --prefix PATH : ${lib.makeBinPath [pkgs.git pkgs.nh]}
         done
       '';
 

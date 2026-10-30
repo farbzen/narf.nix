@@ -96,8 +96,8 @@ nix run github:farbzen/narf.nix#narf-tui
 > `narf` and `narf-tui` are the same derivation; installing one of them puts
 > both binaries on the `PATH`. Both are wrapped with
 > [nh](https://github.com/nix-community/nh) and git, which narf calls for the
-> rebuild and the commits. nix and nixos-rebuild are bundled as a fallback; the
-> system's versions take precedence.
+> rebuild and the commits. nix and nixos-rebuild are taken from the NixOS
+> system.
 
 ### Binary cache
 
