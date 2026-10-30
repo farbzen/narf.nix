@@ -1,0 +1,80 @@
+name: Binary cache
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  push:
+    branches: [main]
+    paths:
+      - flake.nix
+      - flake.lock
+      - packages/**
+      - .github/workflows/cache.yml
+  workflow_dispatch:
+
+concurrency:
+  group: binary-cache
+  cancel-in-progress: false
+
+jobs:
+  update-nixpkgs:
+    name: Update nixpkgs
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    outputs:
+      build: ${{ steps.lock.outputs.build }}
+      rev: ${{ steps.lock.outputs.rev }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: cachix/install-nix-action@v31.11.3
+
+      - name: Update nixpkgs input
+        run: nix flake update nixpkgs
+
+      - name: Commit updated flake.lock
+        id: lock
+        run: |
+          if git diff --quiet -- flake.lock; then
+            if [ "${{ github.event_name }}" = "schedule" ]; then
+              echo "build=false" >> "$GITHUB_OUTPUT"
+            else
+              echo "build=true" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore(deps): update nixpkgs" -- flake.lock
+            git push
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "rev=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  build:
+    name: Build and push (${{ matrix.system }})
+    needs: update-nixpkgs
+    if: needs.update-nixpkgs.outputs.build == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - system: x86_64-linux
+            runner: ubuntu-24.04
+          - system: aarch64-linux
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ needs.update-nixpkgs.outputs.rev }}
+
+      - uses: cachix/install-nix-action@v31.11.3
+
+      - uses: cachix/cachix-action@v17
+        with:
+          name: farbzen
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Build packages
+        run: nix build --print-build-logs .#packages.${{ matrix.system }}.narf .#packages.${{ matrix.system }}.narf-tui
