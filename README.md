@@ -4,7 +4,7 @@
 
 # narf.nix
 
-_Nix flake for narf – NixOS Advanced Rebuild Flake_
+_NixOS Advanced Rebuild Flake_
 
 [![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)](CHANGELOG.md)
 [![Nix Flake](https://img.shields.io/badge/nix-flake-5277C3?style=flat-square&logo=nixos&logoColor=white)](flake.nix)
