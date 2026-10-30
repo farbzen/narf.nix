@@ -10,8 +10,9 @@ _NixOS Advanced Rebuild Flake_
 [![Nix Flake](https://img.shields.io/badge/nix-flake-5277C3?style=flat-square&logo=nixos&logoColor=white)](flake.nix)
 [![Rust](https://img.shields.io/badge/rust-2024-orange?style=flat-square&logo=rust)](packages/Cargo.toml)
 [![Cachix](https://img.shields.io/badge/cachix-farbzen-4A90D9?style=flat-square)](https://farbzen.cachix.org)
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 
-[Overview](#overview) • [Features](#features) • [Getting Started](#getting-started) • [Applications](#applications) • [Development](#development) • [Deployment](#deployment) • [Documentation](#documentation)
+[Overview](#overview) • [Features](#features) • [Getting Started](#getting-started) • [Applications](#applications) • [Development](#development) • [Deployment](#deployment) • [Documentation](#documentation) • [License](#license)
 
 </div>
 
@@ -172,5 +173,8 @@ newer nixpkgs revision to `flake.lock` and pushes the packages for
 ## Documentation
 
 - [Deployment and binary cache](docs/deployment.md)
-
 - [Changelog](CHANGELOG.md)
+
+## License
+
+See [LICENSE](LICENSE).
