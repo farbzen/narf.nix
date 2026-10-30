@@ -1,0 +1,10 @@
+[package]
+name = "narf"
+version.workspace = true
+edition.workspace = true
+description = "NixOS Advanced Rebuild Flake - Rebuilding nix flakes and creating commits"
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.7", features = ["derive"] }
+cliclack = "0.5.6"
