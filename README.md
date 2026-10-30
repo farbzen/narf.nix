@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src=".assets/logo.png" alt="narf logo" width="160">
+
 # narf.nix
 
 _Nix flake for narf – NixOS Advanced Rebuild Flake_
@@ -7,8 +9,9 @@ _Nix flake for narf – NixOS Advanced Rebuild Flake_
 [![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)](CHANGELOG.md)
 [![Nix Flake](https://img.shields.io/badge/nix-flake-5277C3?style=flat-square&logo=nixos&logoColor=white)](flake.nix)
 [![Rust](https://img.shields.io/badge/rust-2024-orange?style=flat-square&logo=rust)](packages/Cargo.toml)
+[![Cachix](https://img.shields.io/badge/cachix-farbzen-4A90D9?style=flat-square)](https://farbzen.cachix.org)
 
-[Overview](#overview) • [Features](#features) • [Getting Started](#getting-started) • [Applications](#applications) • [Development](#development) • [Documentation](#documentation)
+[Overview](#overview) • [Features](#features) • [Getting Started](#getting-started) • [Applications](#applications) • [Development](#development) • [Deployment](#deployment) • [Documentation](#documentation)
 
 </div>
 
