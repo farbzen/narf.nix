@@ -27,5 +27,7 @@ and this project adheres to
   `x86_64-linux` and `aarch64-linux`; `narf` and `narf-tui` bring `nh` and
   `git` on their `PATH`; `nix` and `nixos-rebuild` come from the NixOS
   system.
+- MIT license, declared in the Cargo manifests and in the `meta.license` of
+  the Nix packages.
 
 [Unreleased]: https://github.com/farbzen/narf.nix/commits/main

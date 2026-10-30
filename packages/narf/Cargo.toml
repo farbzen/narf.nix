@@ -2,6 +2,7 @@
 name = "narf"
 version.workspace = true
 edition.workspace = true
+license.workspace = true
 description = "NixOS Advanced Rebuild Flake - Rebuilding nix flakes and creating commits"
 
 [dependencies]

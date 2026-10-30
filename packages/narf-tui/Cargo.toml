@@ -2,6 +2,7 @@
 name = "narf-tui"
 version.workspace = true
 edition.workspace = true
+license.workspace = true
 description = "TUI frontend for narf (NixOS Advanced Rebuild Flake)"
 
 [dependencies]

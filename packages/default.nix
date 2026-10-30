@@ -40,6 +40,7 @@
 
       meta = {
         inherit (manifest.package) description;
+        license = lib.getLicenseFromSpdxId workspace.workspace.package.license;
         mainProgram = "narf";
       };
     };
